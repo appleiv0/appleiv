@@ -1,0 +1,35 @@
+import numpy as np
+import matplotlib.pyplot as plt
+#x=np.linspace(0.,10.,101)
+#print(x)
+
+def y(x):
+    return x**2
+#print(y)
+
+#plt.scatter(x,y)
+#plt.show()
+X=np.array([])
+Y=np.array([])
+Y_diff=np.array([])
+print(X)
+xold=0
+h=0.01
+for i in range(0,10001):
+#    print(i,xx)
+    x=i*h
+    X=np.append(X,x)
+    Y=np.append(Y,y(x))
+    Y_diff=np.append(Y_diff,(y(x)-y(x-1*h))/h)
+#    print(x,(y(x)-y(x-1*h))/h)
+
+print(X.shape)
+print(Y_diff.shape)
+
+fig, axs = plt.subplots(ncols=2)
+axs[0].scatter(X, Y)
+axs[1].scatter(X, Y_diff)
+#plt.savefig()
+plt.show()
+
+#그 결과를 .show() 하면 보여주는 거고 .savefig() 하면 파일로 저장하는 건데
